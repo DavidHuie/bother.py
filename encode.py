@@ -9,8 +9,9 @@ By: David Huie
 bother_encoded.py was generated as follows:
    cat bother.py | python encode.py > bother_encoded.py
 
-secret_key below was created by taking the sha512 sum of a two character string.
-If you can't decode bother_encoded.py, I don't know even know what to say...
+secret_key below was created by taking the sha1 sum of a two character string
+using the shasum utility. If you can't decode bother_encoded.py, I don't know
+even know what to say...
 """
 program_text = stdin.read()
 
