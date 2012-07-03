@@ -10,7 +10,11 @@ bother_encoded.py was generated as follows:
    cat bother.py | python encode.py > bother_encoded.py
 
 secret_key below was created by taking the sha1 sum of a two character string
-using the shasum utility. If you can't decode bother_encoded.py, I don't know
+using the shasum utility. In other words,
+   SECRET_KEY=$(echo 'XX' | shasum)
+where 'XX' is my 2 character secret key.
+
+If you can't decode bother_encoded.py, I don't know
 even know what to say...
 """
 program_text = stdin.read()
