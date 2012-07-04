@@ -11,7 +11,7 @@ bother_encoded.py was generated as follows:
 
 secret_key below was created by taking the sha1 sum of a two character string
 using the shasum utility. In other words,
-   SECRET_KEY=$(echo 'XX' | shasum)
+   SECRET_KEY=$(echo 'XX' | shasum | awk '{print $1}')
 where 'XX' is my 2 character secret key.
 
 If you can't decode bother_encoded.py, I don't know
@@ -19,8 +19,8 @@ even know what to say...
 """
 program_text = stdin.read()
 
-secret_key = 'you will have to guess the key!'[:16]
-cipher = AES.new(secret_key, AES.MODE_ECB)
+secret_key = '$SECRET_KEY'
+cipher = AES.new(secret_key[:16], AES.MODE_ECB)
 encoded = base64.b64encode(cipher.encrypt(program_text + ' ' *  (16 - len(program_text) % 16)))
 
 print encoded
